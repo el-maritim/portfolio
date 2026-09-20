@@ -1,0 +1,71 @@
+/* Report layout extends the homepage's shared colors, grid, fonts, and navigation. */
+:root{color-scheme:dark}
+.lab-report{line-height:1.7}
+.lab-report .nav-inner{gap:18px}
+.lab-report .report-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;max-width:1380px;margin:auto;padding:108px 32px 64px}
+.report-layout aside,.report-layout main{min-width:0}
+.report-toc{position:sticky;top:92px;max-height:calc(100vh - 116px);overflow:auto;border:1px solid var(--line);background:var(--bg-panel);padding:20px 0;scrollbar-width:thin;scrollbar-color:var(--line-bright) var(--bg-panel)}
+.report-toc h2{font:600 13px var(--mono);padding:0 18px 18px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.report-toc h2 span{color:var(--accent)}
+.report-toc a{display:block;padding:10px 18px;font:11px/1.6 var(--mono);color:var(--fg-soft);border-left:2px solid transparent}
+.report-toc a:hover,.report-toc a:focus-visible{background:var(--accent-dim);color:var(--accent);border-left-color:var(--accent)}
+.report-intro{position:relative;padding:32px;border:1px solid var(--line-bright);background:var(--bg-panel);margin-bottom:36px}
+.report-intro::before,.report-intro::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--accent)}
+.report-intro::before{top:-2px;left:-2px;border-right:none;border-bottom:none}
+.report-intro::after{bottom:-2px;right:-2px;border-left:none;border-top:none}
+.eyebrow{font:11px var(--mono);color:var(--accent);letter-spacing:.09em}
+.report-intro h1{font:700 clamp(25px,3.5vw,44px)/1.22 var(--mono);letter-spacing:-.04em;margin:24px 0 18px}
+.report-intro h1 span{color:var(--accent)}
+.report-intro p{margin:14px 0;color:var(--fg-soft)}
+.report-intro .eyebrow{color:var(--accent)}
+.report-intro .lab-byline{font:11px/1.7 var(--mono)}
+.lab-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:24px 0}
+.lab-stats span,.lab-stats strong{display:block;font:11px/1.8 var(--mono)}
+.lab-stats span{color:var(--fg-soft)}
+.lab-stats strong{color:var(--fg);font-weight:600}
+.lab-route{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:10px/1.7 var(--mono);color:var(--accent);margin-bottom:24px}
+.lab-route span:not([aria-hidden]){padding:5px 9px;border:1px solid var(--line-bright)}
+.lab-report article{counter-reset:report-section;background:rgba(10,22,40,.92);padding:28px;border:1px solid var(--line)}
+.lab-report article h2{display:flex;align-items:baseline;gap:14px;font-size:23px;line-height:1.4;margin:44px 0 22px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:88px}
+.lab-report article h2::before{counter-increment:report-section;content:counter(report-section,decimal-leading-zero);font:12px var(--mono);color:var(--accent);border:1px solid var(--line-bright);padding:5px 8px;flex:none}
+.lab-report article h3{font:600 15px/1.6 var(--mono);margin:26px 0 12px;color:var(--accent)}
+.lab-report article p{max-width:85ch;margin:12px 0;color:var(--fg-soft);font-size:14px;overflow-wrap:anywhere}
+.lab-report .source-note{font-size:12px;line-height:1.7;border-left:2px solid var(--line-bright);padding-left:12px}
+.lab-report pre{padding:16px;background:var(--bg-panel);border-left:2px solid var(--accent);overflow-x:auto;font:12px/1.8 var(--mono);text-align:left}
+.lab-report pre code{color:var(--accent)}
+.lab-report figure{margin:28px 0;background:var(--bg-panel);border:1px solid var(--line-bright);overflow-x:auto;padding:16px;scrollbar-width:thin}
+.lab-report figure::before{content:"SCREEN CAPTURE  /  LAB EVIDENCE";display:block;color:var(--accent);font:10px var(--mono);letter-spacing:.05em;margin-bottom:16px}
+.lab-report figure img{max-width:none;height:auto;display:block}
+.lab-report figcaption{font:11px/1.7 var(--mono);color:var(--fg-soft);margin-top:14px;max-width:75ch}
+.table-scroll{overflow:auto;margin:24px 0}
+.lab-report table{border-collapse:collapse;width:100%;font-size:13px}
+.lab-report th,.lab-report td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;min-width:120px}
+.lab-report th{background:var(--bg-panel);font-family:var(--mono)}
+.lab-report th p{color:var(--accent)}
+.lab-report td p,.lab-report th p{margin:0 0 6px;font-size:12px}
+.report-footer{padding:24px 0;border-top:1px solid var(--line);font:11px/1.7 var(--mono);color:var(--fg-soft)}
+.report-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.report-footer a{color:var(--accent)}
+.skip-link{position:fixed;top:-100px;left:16px;background:var(--bg-panel);padding:12px;z-index:200;color:var(--accent)}
+.skip-link:focus{top:12px}
+@media(max-width:1000px){.lab-report .report-layout{grid-template-columns:minmax(0,1fr);gap:24px}.report-toc{position:static;max-height:220px}.report-toc a{padding:8px 18px}}
+@media(max-width:600px){.lab-report .report-layout{padding:88px 16px 40px}.report-intro{padding:22px 18px}.lab-report article{padding:18px 14px}.lab-stats{grid-template-columns:1fr;gap:12px}.lab-report article h2{font-size:19px;gap:10px}.lab-report figure{padding:10px}.lab-report .mark{font-size:10px}.lab-report nav.links{font-size:10px;gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lab-report .status-led{animation:none}}
+@media print{.lab-report header,.report-layout aside,.report-footer,.skip-link{display:none}.lab-report{background:white;color:black}.lab-report .report-layout{display:block;padding:0}.report-intro,.lab-report article,.lab-report figure,.lab-report th{background:white;color:black}.lab-report figure img{max-width:100%}.lab-report figure{break-inside:avoid}.lab-report article p,.report-intro p,.lab-report figcaption{color:#333}}
+/* Scale captures to the reading column; original size remains available. */
+.lab-report figure img{max-width:100%;height:auto}
+.lab-report figure.original-size img{max-width:none}
+.capture-toggle{display:block;margin-top:14px;min-height:44px;padding:10px 14px;background:var(--bg);color:var(--accent);border:1px solid var(--line-bright);font:11px var(--mono);cursor:pointer}
+.lab-report article,.report-intro,.lab-report figure,.table-scroll{min-width:0;max-width:100%}
+.lab-stats strong,.lab-byline,.lab-route span{overflow-wrap:anywhere}
+.lab-report pre{max-width:100%}
+@media(max-width:600px){
+  .lab-report article h2{overflow-wrap:anywhere}
+  .report-intro h1{font-size:clamp(22px,6vw,32px);overflow-wrap:anywhere}
+  .lab-report .report-layout{padding-top:92px}
+  .lab-report th,.lab-report td{padding:10px;min-width:100px}
+  .lab-report table{min-width:360px}
+  .report-toc a{min-height:44px;display:flex;align-items:center}
+  .lab-report .report-footer .wrap{gap:14px}
+}
+@media print{.capture-toggle{display:none}.lab-report figure.original-size img{max-width:100%}}
