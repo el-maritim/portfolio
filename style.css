@@ -156,8 +156,10 @@
   .frame::before{ top:-2px; left:-2px; border-right:none; border-bottom:none; }
   .frame::after{ bottom:-2px; right:-2px; border-left:none; border-top:none; }
   .frame .photo{ position:relative; overflow:hidden; aspect-ratio:4/3; }
-  .frame .photo img{ width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:grayscale(1) contrast(1.08) brightness(.92); }
-  .frame .photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(155deg, rgba(94,234,212,.22), rgba(10,22,40,.5) 70%); mix-blend-mode:color; }
+  .frame .photo img{ width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:grayscale(1) contrast(1.08) brightness(.92); transition:filter .35s ease; }
+  .frame .photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(155deg, rgba(94,234,212,.22), rgba(10,22,40,.5) 70%); mix-blend-mode:color; pointer-events:none; transition:opacity .35s ease; }
+  .frame:hover .photo img{ filter:none; }
+  .frame:hover .photo::after{ opacity:0; }
   .frame .cap{ margin-top:12px; display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--fg-soft); }
   .frame .cap .accent{ color:var(--accent); }
 
